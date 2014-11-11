@@ -21,7 +21,7 @@ public class Ibm3624Offset  {
 	 * Ibm3624Offset Constructor.
 	 * <p>	
 	 * @param pvk PVK Deskey 
-	 * @param dectable	dicimalization table binary array ( 16 length values in 0x00 to 0x09 ) 
+	 * @param dectable	decimalization table binary array ( 16 length values in 0x00 to 0x09 ) 
 	 * @throws CustomerVerifyException
 	 */
 	public Ibm3624Offset ( Pvk pvk,  byte[] dectable )  throws CustomerVerifyException {	
@@ -37,7 +37,7 @@ public class Ibm3624Offset  {
 	 * Ibm3624Offset Constructor.
 	 * <p>
 	 * @param pvk PVK Desky   	
-	 * @param dectable	dicimalization table ( 16 decimal digits ) 
+	 * @param dectable	decimalization table ( 16 decimal digits ) 
 	 * @throws CustomerVerifyException
 	 */	
 	public Ibm3624Offset (  Pvk pvk, String dectable )  throws CustomerVerifyException {
@@ -52,8 +52,9 @@ public class Ibm3624Offset  {
 		setState ( pvk, abytearr  ) ;
 	}
 	/**
-	 * Save decimalization table values.
+	 * Save pvk and decimalization table values.
 	 * <p>	
+	 * @param pvk PVK Deskey
 	 * @param dectable binary array
 	 * @throws CustomerVerifyException
 	 */
