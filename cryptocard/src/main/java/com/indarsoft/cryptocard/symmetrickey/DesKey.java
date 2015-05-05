@@ -27,7 +27,7 @@ public class DesKey  {
 	 */	
 	public DesKey(String deskey ) throws DesKeyException {
 	
-		byte[] abytearr = Ascii.string2byteArray( deskey );
+		byte[] abytearr =  deskey.getBytes() ;
 		if ( ! isvalidKey(abytearr) ) throw new DesKeyException("Wrong Key - Simple DESKEY Must be 16 long Hexadecimal data !!") ;
 		setEstate ( abytearr ) ;
 	} 

@@ -42,7 +42,7 @@ public class Ibm3624Offset  {
 	 */	
 	public Ibm3624Offset (  Pvk pvk, String dectable )  throws CustomerVerifyException {
 		
-		byte[] abytearr = Ascii.string2byteArray(dectable);
+		byte[] abytearr = dectable.getBytes() ;
 		for (int i=0; i < abytearr.length; i++){
 			if ( ! Ascii.isNumeric( abytearr[i]  ) ) {
 				throw new CustomerVerifyException("decimalizationTable must be 16 long, with decimal digits");
