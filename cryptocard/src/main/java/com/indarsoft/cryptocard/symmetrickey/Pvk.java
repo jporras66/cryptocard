@@ -1,7 +1,6 @@
 package com.indarsoft.cryptocard.symmetrickey;
 /**
  * Pvk Pin Verification key.
- * <p>
  * <pre>
  * 6.4.4 PIN Verification Key (PVK) Pair
  * The PVK pair consists of two odd-parity DES keys (DOUBLE length) . 
@@ -29,8 +28,8 @@ public class Pvk extends DesKey {
 	/**
 	 * PVK constructor
 	 * @param aKey	DES key double length.
-	 * @param pvki
-	 * @throws DesKeyException
+	 * @param pvki	pvki
+	 * @throws DesKeyException if a exception arrives
 	 */
 	public Pvk (String aKey ,  int pvki  ) throws DesKeyException  {
 		
@@ -45,7 +44,7 @@ public class Pvk extends DesKey {
 	/**
 	 * PVK constructor with default pvki = 1.
 	 * @param aKey	DES key double length
-	 * @throws DesKeyException
+	 * @throws DesKeyException if a exception arrives
 	 */
 	public Pvk (String aKey  ) throws DesKeyException  {
 		

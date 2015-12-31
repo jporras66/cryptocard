@@ -23,7 +23,7 @@ public class DesKey  {
 	 * Deskey constructor
 	 * <p>
 	 * @param 	deskey input string value to build the key 
-	 * @exception com.indarsoft.cryptocard.symmetrickey.DesKeyException
+	 * @exception DesKeyException if a exception arrives
 	 */	
 	public DesKey(String deskey ) throws DesKeyException {
 	
@@ -34,8 +34,8 @@ public class DesKey  {
     /**
 	 * Deskey constructor
 	 * <p>
-	 * @param 	deskey input byte array to build the key 
-	 * @exception com.indarsoft.cryptocard.symmetrickey.DesKeyException
+	 * @param 		deskey input byte array to build the key 
+	 * @exception 	DesKeyException if an exception arrives
 	 */
 	public DesKey( byte[] deskey  ) throws DesKeyException {
 	
@@ -57,14 +57,13 @@ public class DesKey  {
 	}
     /**
 	 * Return the check value for as DES key
-	 * <p>
 	 * <pre>
-	 * - Build ibmoff 8 bytes block filled of 0x00 --> BLK0
-	 * - Encrypt this Block with the key (SINGLE or DOUBLE) --> KEY
+	 * - Build ibmoff 8 bytes block filled of 0x00 --{@literal>} BLK0
+	 * - Encrypt this Block with the key (SINGLE or DOUBLE) --{@literal>} KEY
 	 * - Return 3 first bytes of DES(BLK0,KEY) or TDES(BLK0,KEY) 
 	 * </pre>
 	 * @return  check value byte array  (3 bytes)
-	 * @exception com.indarsoft.cryptocard.symmetrickey.DesKeyException
+	 * @exception DesKeyException if a exception arrives
 	 */		
 	public byte[] getCheckValue () throws DesKeyException  {
 		
@@ -91,7 +90,7 @@ public class DesKey  {
 	 * Return 6 first digits of the check value for as DES key in ibmoff string format
 	 * <p>
 	 * @return  check value  (6 digits)
-	 * @exception com.indarsoft.cryptocard.symmetrickey.DesKeyException
+	 * @exception DesKeyException if a exception arrives
 	 */	
 	public String getCheckValueAsString () throws DesKeyException {
 		

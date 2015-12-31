@@ -2,7 +2,6 @@ package com.indarsoft.cryptocard.types;
 /**
  * For ibmoff detailed description of DES and Triple DES, please refer to
  * ANSI X9.52
- * <p>
  * <ul>
  * <li>SIMPLE 8  bytes key length
  * <li>DOUBLE 16 bytes key length

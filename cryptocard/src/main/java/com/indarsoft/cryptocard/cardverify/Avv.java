@@ -17,13 +17,13 @@ public class Avv  {
 		x'8C' for an AAV created as the result of ibmoff successful cardholder authentication.
 		x'86' for an AAV created as the result of Attempts processing
 		
-			Length 		--> 1
-			Byte Number	--> Byte 1
+			Length 		--{@literal>} 1
+			Byte Number	--{@literal>} Byte 1
 							
 		merchantHashName : 	The left most 8 bytes of the SHA-1 hash of the Merchant Name field from the PAReq.
 		
-			Length 		--> 2
-			Byte Number	--> Bytes 2-9
+			Length 		--{@literal>} 2
+			Byte Number	--{@literal>} Bytes 2-9
 		
 		acsIdentifier :		Allows an issuer to use up to 256 different ACS facilities.
 			Values for this field are defined based on the algorithm used to create the MAC:
@@ -31,8 +31,8 @@ public class Avv  {
 			8 � 15 Reserved for CVC2
 			16 � 255 � Reserved for future use	
 			
-			Length 		--> 1
-			Byte Number	--> Byte 10		
+			Length 		--{@literal>} 1
+			Byte Number	--{@literal>} Byte 10		
 			
 		authenticationMethod: Indicates how the cardholder was authenticated to the ACS:
 			0 = No Cardholder Authentication Performed (This is only valid for an AAV created using control byte value x�86� � Attempts processing.)
@@ -40,32 +40,32 @@ public class Avv  {
 			2 = Secret Key (e.g. Chip Card)
 			3 = PKI (pending further discussions)		
 
-			Length 		--> 1/2 (4 bits) 
-			Byte Number	--> Byte 11	(firt digit)			
+			Length 		--{@literal>} 1/2 (4 bits) 
+			Byte Number	--{@literal>} Byte 11	(firt digit)			
 			
 		binKeyIdentifier :	Indicates which one of the possible 16 issuer-known secret keys for ibmoff given BIN range was used by the ACS identified by the ACS identifier to create the MAC.
 
-			Length 		--> 1/2 (4 bits) 
-			Byte Number	--> Byte 11	(second digit)
+			Length 		--{@literal>} 1/2 (4 bits) 
+			Byte Number	--{@literal>} Byte 11	(second digit)
 			
 		transactionSequenceNumber :	Unique number that can be used to identify the transaction within the ACS identified by the ACS Identifier field.
 			Once the maximum value has been reached, the number must recycle back to 0.		
 			
-			Length 		--> 4 
-			Byte Number	--> Byte 12-15
+			Length 		--{@literal>} 4 
+			Byte Number	--{@literal>} Byte 12-15
 
 		MAC :	Message Authentication Code, created by ACS.		
 			
-			Length 		--> 5 
-			Byte Number	--> Byte 16-20							
+			Length 		--{@literal>} 5 
+			Byte Number	--{@literal>} Byte 16-20							
 
 	 */
 	private static final byte AUTHENTICATED = (byte) 0x8C ;
 	private static final byte ATTEMP		= (byte) 0x86 ;
 	private byte binKeyId ; 
 	private byte formatVersionNumber ;
-	private byte macAlgorithmId ;			// 0x00-0x07 --> HMAC algorithm for MAC  	
-											// 0x08-0x0F --> CVC2 algorithm for MAC
+	private byte macAlgorithmId ;			// 0x00-0x07 --{@literal>} HMAC algorithm for MAC  	
+											// 0x08-0x0F --{@literal>} CVC2 algorithm for MAC
 	private DesKey cvk ;
 	
 	@SuppressWarnings("unused")

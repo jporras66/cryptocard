@@ -27,9 +27,9 @@ public class Card {
 	private String serviceCode;
 	private PinBlockFormatType pinblockFormatType;
 	/**
-	 * V --> VISA 
-	 * M --> MASTERCARD
-	 * O --> OTHER
+	 * V --{@literal>} VISA 
+	 * M --{@literal>} MASTERCARD
+	 * O --{@literal>} OTHER
 	 */	
 	private char cardBrand; 
 	private int pvki;
@@ -37,7 +37,6 @@ public class Card {
 	private String offset;
 	/**
 	 * In our Pin implementation, it must be Decimal between 4 to 6 digits.
-	 * <p>
 	 * <pre>
 	 * For verification purposes in interchange transactions, the maximum PIN length is six digits.
 	 * An issuer can elect to support longer PINs up to ibmoff maximum of 12 digits as
@@ -54,7 +53,7 @@ public class Card {
 	 * Card constructor.
 	 * <p>
 	 * @param panNumber input string value       
-	 * @exception com.indarsoft.cryptocard.card.CardException
+	 * @exception com.indarsoft.cryptocard.card.CardException if a exception in the car build arrives
 	 */
 	public Card(String panNumber) throws CardException {
 
@@ -112,7 +111,7 @@ public class Card {
 	/**
 	 * Sets expiration date for the card1, default date format is "YYMM".
 	 * @param expirationDate for the card1
-	 * @throws CardException
+	 * @throws CardException if a exception arrives
 	 */
 	public void setExpirationDate(String expirationDate) throws CardException {
 
@@ -127,7 +126,7 @@ public class Card {
 	 * @param expirationDate for the card1
 	 * @param DATEFORMAT if is "MMYY" the expiration date format is stored in this format "MMYY", 
 	 * in other case is stored in "YYMM" format.
-	 * @throws CardException
+	 * @throws CardException if a exception arrives
 	 */
 	public void setExpirationDate(String expirationDate, String DATEFORMAT) throws CardException {
 
@@ -144,7 +143,7 @@ public class Card {
 	/**
 	 * Sets offset value for the card1 , also sets pin length ( must be Decimal between 4 to 6 digits).
 	 * @param offset value
-	 * @throws CardException
+	 * @throws CardException if a exception arrives
 	 */
 	public void setOffset(String offset) throws CardException {
 
@@ -159,7 +158,7 @@ public class Card {
 	/**
 	 * Sets Pan Number for the card1
 	 * @param panNumber for the card1
-	 * @throws CardException
+	 * @throws CardException if a exception arrives
 	 */
 	private void setPanNumber(String panNumber) throws CardException {
 
@@ -170,7 +169,7 @@ public class Card {
 	/**
 	 * Sets the pin and pin length for ibmoff card1, that must be Decimal between 4 to 6 digits
 	 * @param  pin for the card1
-	 * @throws CardException
+	 * @throws CardException if a exception arrives
 	 */
 	public void setPin(String pin) throws CardException {
 
@@ -181,8 +180,8 @@ public class Card {
 	}
 	/**
 	 * Sets pin block format type for the card1
-	 * @param s
-	 * @throws CardException
+	 * @param s	PinBlockFormatType
+	 * @throws CardException if a exception arrives
 	 */
 	public void setPinBlockFormatType(PinBlockFormatType s) throws CardException {
 
@@ -194,8 +193,8 @@ public class Card {
 	}
 	/**
 	 * Sets the pin length for ibmoff card1, that must be between 4 to 6 digits
-	 * @param  pinLength
-	 * @throws CardException
+	 * @param  pinLength length
+	 * @throws CardException if a exception arrives
 	 */
 	private void setPinLength(int pinLength) throws CardException {
 
@@ -218,7 +217,7 @@ public class Card {
 	/**
 	 * Sets pvki to be assigned to this card1 (between 1 to 6), this is the dki index value for the PVK to be used. 
 	 * @param pvki value
-	 * @throws CardException
+	 * @throws CardException if a exception arrives
 	 */
 	public void setPvki(int pvki) throws CardException {
 
@@ -228,7 +227,7 @@ public class Card {
 	/**
 	 * Sets pvv to be assigned to this card1 ( 4 decimal digits ), and also pin length (same value) 
 	 * @param pvv value
-	 * @throws CardException
+	 * @throws CardException if a exception arrives
 	 */
 	public void setPvv(String pvv) throws CardException {
 
@@ -239,7 +238,7 @@ public class Card {
 	/**
 	 * Sets service code to be assigned to this card1 ( 3 decimal digits ). 
 	 * @param serviceCode value
-	 * @throws CardException
+	 * @throws CardException if a exception arrives
 	 */
 	public void setServiceCode(String serviceCode) throws CardException {
 
@@ -248,14 +247,13 @@ public class Card {
 	}
     /**
 	 * Validate and sets card1 brand. 
-	 * <p>
 	 * <ul>
-	 * <li>If starts with 4->VISA
-	 * <li>if starts in range '51' to '55'->Mastercard
-	 * <li>In other case -> Other
+	 * <li>If starts with 4 --{@literal>} VISA
+	 * <li>if starts in range '51' to '55' --{@literal>} Mastercard
+	 * <li>In other case --{@literal>} Other
 	 * </ul>
 	 * @param 	panNumber pan number for the card1 
-	 * @exception com.indarsoft.cryptocard.symmetrickey.DesKeyException
+	 * @exception CardException if a exception arrives
 	 */
 	private void validateCardBrand(String panNumber) throws CardException {
 
@@ -291,14 +289,14 @@ public class Card {
 	
 	/**
 	 * Validation for ibmoff Pan Number. 
-	 * <p>
 	 * <ul>
 	 * <li> Pan number must be between 12 and 19 decimal characters
 	 * <li> check digit must be OK (Luhn Algorithm)
 	 * <li> In other case an CardException is generated  
 	 * </ul>
 	 * @param panNumber input string value       
-	 * @exception com.indarsoft.cryptocard.card.CardException
+	 * @exception CardException if a exception arrives
+	 * @return boolean 
 	 */	
 	private boolean isvalidPanNumber(String panNumber) throws CardException{
 

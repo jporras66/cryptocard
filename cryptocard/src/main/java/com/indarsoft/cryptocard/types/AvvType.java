@@ -1,7 +1,6 @@
 package com.indarsoft.cryptocard.types;
 /**
  * TODO not yet implemented.
- * <p>
  */
 public class AvvType {
 

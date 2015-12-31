@@ -12,7 +12,6 @@ public class PinValidationData {
 
 	/**
 	 * Build a "customized" PIN validation data block conforming Thales 7000, from an input Pan Number. 
-	 * <p>
 	 * <pre>
 	 * Refer to Thales 7000 manual - 9.4 IBM PIN Offset (command code value 'DE' )
 	 * - Computes Account Number : Takes the 12 right-most digits of the account number, excluding check digit.
@@ -22,7 +21,7 @@ public class PinValidationData {
 	 * @param panNumber Pan Number from which to build Pin Validation Data
 	 * @param index position to insert the last 5 digits of the account number 
 	 * @return Pin Validation Data
-	 * @exception CustomerVerifyException
+	 * @exception CustomerVerifyException if a exception arrives
 	 */
 	public static String build7000(String panNumber, int index ) throws CustomerVerifyException {
 		/*
@@ -42,18 +41,18 @@ public class PinValidationData {
 	}
 	/**
 	 * Build a "customized" PIN validation data block conforming Thales 8000, from an input Pan Number. 
-	 * <p>
 	 * <pre>
 	 * Refer to Thales HSM 8000 Host Command Reference Manual - Generate an IBM PIN Offset (command code value 'DE' )
-	 * - Takes characters from Pan Number starting at position sp and ending at ep ( 1 <= sp < ep <= 15 ) 
+	 * - Takes characters from Pan Number starting at position sp and ending at ep ( 1 {@literal<}= sp {@literal<} ep {@literal<}= 15 ) 
 	 * - Add pad character until a 16 characters length is completed.
 	 * - Returns this data
 	 * </pre>
 	 * @param panNumber Pan Number from which to build Pin Validation Data
 	 * @param sp start position from Pan Number
 	 * @param ep end position from Pan Number  
-	 * @return pad padding character
-	 * @exception CustomerVerifyException
+	 * @param pad padding character
+	 * @return Pin Validation Data
+	 * @exception CustomerVerifyException if a exception arrives
 	 */
 	public static String build8000(String panNumber, int sp , int ep, char pad ) throws CustomerVerifyException {
 

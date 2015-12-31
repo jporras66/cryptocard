@@ -6,7 +6,6 @@ import com.indarsoft.utl.Binary;
 import com.indarsoft.utl.Des;
 /**
  * CardVerification performs CVV/CVV2/ICVV verification.  
- * <p>
  * <ul>
  * <li>Issuers must not use the same verification keys for CVV and CVV2 as
  * those used for PIN Verification values (PVVs) with Visa’s PIN Verification
@@ -44,7 +43,7 @@ public class CardVerification  {
 	 * Gets cvv value, default date expiration format assumed as "YYMM".
 	 * <p>
 	 * @return cvv calculated
-	 * @throws Exception	java.lang.Exception
+	 * @throws Exception	java.lang.Exception if a exception arrives
 	 */	
 
 	public String getCvv () throws Exception {		
@@ -56,7 +55,7 @@ public class CardVerification  {
 	 * <p>
 	 * @param  DATEFORMAT for expiration date ( "YYMM" or "MMYY" )	
 	 * @return cvv calculated
-	 * @throws Exception	java.lang.Exception
+	 * @throws Exception	java.lang.Exception if a exception arrives
 	 */	
 	public String getCvv ( String DATEFORMAT) throws Exception {		
 		
@@ -66,7 +65,7 @@ public class CardVerification  {
 	 * Gets cvv2 value, default service code "000" and date expiration format assumed as "YYMM".
 	 * <p>
 	 * @return cvv calculated
-	 * @throws Exception	java.lang.Exception
+	 * @throws Exception	java.lang.Exception if a exception arrives
 	 */	
 	public String getCvv2 ( ) throws Exception {		
 		
@@ -77,7 +76,7 @@ public class CardVerification  {
 	 * <p>
 	 * @param  DATEFORMAT for expiration date ( "YYMM" or "MMYY" )	
 	 * @return cvv calculated
-	 * @throws Exception	java.lang.Exception
+	 * @throws Exception	java.lang.Exception if a exception arrives
 	 */
 	public String getCvv2 ( String DATEFORMAT)  throws Exception {		
 		
@@ -87,7 +86,7 @@ public class CardVerification  {
 	 * Gets icvv value, default service code "999" and date expiration format assumed as "YYMM".
 	 * <p>
 	 * @return cvv calculated
-	 * @throws Exception	java.lang.Exception
+	 * @throws Exception	java.lang.Exception if a exception arrives
 	 */		
 	public String getIcvv ( ) throws Exception {
 	
@@ -98,7 +97,7 @@ public class CardVerification  {
 	 * <p>
 	 * @param  DATEFORMAT for expiration date ( "YYMM" or "MMYY" )	
 	 * @return cvv calculated
-	 * @throws Exception	java.lang.Exception
+	 * @throws Exception	java.lang.Exception if a exception arrives
 	 */
 	public String getIcvv ( String DATEFORMAT)  throws Exception {		
 		
@@ -113,7 +112,7 @@ public class CardVerification  {
 	 * @param serviceCode	Card service code
 	 * @param DATEFORMAT	expiration date Format ( "YYMM"-default or "MMYY" )
 	 * @return cvv calculated
-	 * @throws Exception	java.lang.Exception
+	 * @throws Exception	java.lang.Exception if a exception arrives
 	 */			
 	private String cvvAlgorithm (String panNumber, String expiredDate, String serviceCode, String DATEFORMAT) throws Exception {
 			
@@ -133,8 +132,9 @@ public class CardVerification  {
 	 * @param panNumber	 	Card pan number
 	 * @param expiredDate	Card expiration date
 	 * @param serviceCode	Card service code
+	 * @param desKey		to be used
 	 * @return cvv calculated
-	 * @throws Exception	java.lang.Exception
+	 * @throws Exception	java.lang.Exception if a exception arrives
 	 */	
 	private String cvvAlgorithm (String panNumber, String expiredDate, String serviceCode, byte [] desKey) throws Exception {
 

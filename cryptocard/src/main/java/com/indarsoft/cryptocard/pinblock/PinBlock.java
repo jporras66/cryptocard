@@ -31,7 +31,7 @@ public class PinBlock {
 	 * @param card	input card
 	 * @param zpk	input zpk
 	 * @return	IsoPinBlockFormat0 or IsoPinBlockFormat3 depending on card pinblock format type
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	public static PinBlock getEncrypted ( Card card, Zpk zpk ) throws Exception {
 		 
@@ -50,7 +50,7 @@ public class PinBlock {
 	 * @param card	input card
 	 * @param zpk	input zpk
 	 * @return	IsoPinBlockFormat0 or IsoPinBlockFormat3 depending on card pinblock format type
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */	
 	public static PinBlock getDecrypted ( String encryptedPinBlock, Card card, Zpk zpk ) throws Exception {
 		
@@ -85,6 +85,7 @@ public class PinBlock {
 	 * @param encryptedPinBlock	input encrypted pinblock 
 	 * @param card	input card
 	 * @param zpk	input zpk
+	 * @throws Exception if a exception arrives
 	 */
 	protected PinBlock ( byte[] encryptedPinBlock, Card card, Zpk zpk ) throws Exception {
 		
@@ -173,7 +174,7 @@ public class PinBlock {
 	 * 
 	 * @param encryptedPinBlock input encrypted pinblock
 	 * @param zpk input zpk
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	protected void computeClearPinBlock ( byte[] encryptedPinBlock, Zpk zpk ) throws Exception {
 	
@@ -198,7 +199,7 @@ public class PinBlock {
 	 * <p>
 	 * @param clearPinBlock input clear pinblock
 	 * @param zpk input zpk
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	protected void computeEncriptedPinBlock ( byte[] clearPinBlock, Zpk zpk ) throws Exception {
 		

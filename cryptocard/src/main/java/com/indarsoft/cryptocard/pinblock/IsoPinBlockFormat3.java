@@ -9,7 +9,6 @@ import com.indarsoft.utl.Binary;
 
 /**
  * ISO PIN Block Format 3. 
- *  <p>
  * <pre>
  * See VISA - Payment Technology Standards Manual - 5.2.4 ISO PIN Block Format 3
  * 
@@ -33,6 +32,7 @@ public class IsoPinBlockFormat3  extends PinBlock {
 	 * <p>
 	 * @param card input card
 	 * @param zpk input zpk
+	 * @throws Exception if a exception arrives
 	 */	
 	protected IsoPinBlockFormat3 ( Card card, Zpk zpk ) throws Exception {
 		
@@ -49,7 +49,7 @@ public class IsoPinBlockFormat3  extends PinBlock {
 	 * @param encryptedPinBlock input decrypted pinblock 
 	 * @param card input card
 	 * @param zpk input zpk
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	protected IsoPinBlockFormat3 ( byte[] encryptedPinBlock, Card card, Zpk zpk ) throws Exception {
 		

@@ -7,7 +7,6 @@ import com.indarsoft.utl.Binary;
 import com.indarsoft.utl.Des;
 /**
  * PVV performs pvv calculation and pin from a given pvv.    
- * <p>
  * <pre>
  * See VISA-Payment Technology Standards Manual - 6.5 Computing the PVV
  * The PVV computation process consists of the following steps:
@@ -42,7 +41,7 @@ public class Pvv   {
 	 * @param card to compute his pvv
 	 * @param pvk DES key
 	 * @return pvv 4 decimal digits 
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
     public static String compute ( Card card , Pvk pvk ) throws Exception {
     	
@@ -50,7 +49,6 @@ public class Pvv   {
     }
 	/**
 	 * Computes pvv for a given  pan number, pin number, dki and pvk.
-	 * <p>
 	 * <pre>
 	 * See VISA-Payment Technology Standards Manual - 6.4 Data Elements
 	 * The following data elements are required to generate a PVV:
@@ -64,7 +62,7 @@ public class Pvv   {
 	 * @param dki 		input dki
 	 * @param pvk		input DES pvk
 	 * @return 			pvv 4 decimal digits
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	
     public static String compute ( String panNumber, String pinNumber, int dki , Pvk pvk) throws Exception {
@@ -170,7 +168,7 @@ public class Pvv   {
      * @param card	input card
      * @param pvk	inpt DES pvk 
      * @return	pin value if found, or "N/F" in other case
-     * @throws Exception
+     * @throws Exception if a exception arrives
      */
 	public static String findPin ( Card card, Pvk pvk ) throws Exception {
 		
@@ -187,7 +185,7 @@ public class Pvv   {
 	 * @param dki		input dki
 	 * @param pvk		input DES pvk
 	 * @return pin value if found, or "N/F" in other case
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	public static String findPin ( String panNumber, String pvv, int dki , Pvk pvk ) throws Exception {
 		

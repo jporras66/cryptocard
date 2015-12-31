@@ -22,7 +22,7 @@ public class Ibm3624Offset  {
 	 * <p>	
 	 * @param pvk PVK Deskey 
 	 * @param dectable	decimalization table binary array ( 16 length values in 0x00 to 0x09 ) 
-	 * @throws CustomerVerifyException
+	 * @throws CustomerVerifyException if a exception arrives
 	 */
 	public Ibm3624Offset ( Pvk pvk,  byte[] dectable )  throws CustomerVerifyException {	
 		
@@ -38,7 +38,7 @@ public class Ibm3624Offset  {
 	 * <p>
 	 * @param pvk PVK Desky   	
 	 * @param dectable	decimalization table ( 16 decimal digits ) 
-	 * @throws CustomerVerifyException
+	 * @throws CustomerVerifyException if a exception arrives
 	 */	
 	public Ibm3624Offset (  Pvk pvk, String dectable )  throws CustomerVerifyException {
 		
@@ -56,7 +56,7 @@ public class Ibm3624Offset  {
 	 * <p>	
 	 * @param pvk PVK Deskey
 	 * @param dectable binary array
-	 * @throws CustomerVerifyException
+	 * @throws CustomerVerifyException if a exception arrives
 	 */
 	private void setState( Pvk pvk, byte[] dectable ) throws CustomerVerifyException {
 		
@@ -67,16 +67,15 @@ public class Ibm3624Offset  {
 	}
 	/**
 	 * Generate customer pin for a given offset. 
-	 * <p>
 	 * <pre>
 	 * - Calculate Natural Pin  
 	 * - Compute ( Natural Pin + Offset  ) modulus 10 
-	 * - pin --> Return previous result as string  
+	 * - pin --{@literal>} Return previous result as string  
 	 * </pre> 
 	 * @param pinValidationData pin validation data
 	 * @param offset input pan offset
 	 * @return pin generated
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	public String generatePin ( String pinValidationData, String offset ) throws Exception {
 			
@@ -95,16 +94,15 @@ public class Ibm3624Offset  {
 	}
 	/**
 	 * Generate offset for a given Pin. 
-	 * <p>
 	 * <pre>
 	 * - Calculate Natural Pin  
 	 * - Subtract ( Customer Pin - Natural Pin ) modulus 10 
-	 * - Offset --> Return previous result as string  
+	 * - Offset --{@literal>} Return previous result as string  
 	 * </pre> 
 	 * @param pinValidationData pin validation data
 	 * @param pin input pin
 	 * @return offset generated
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	public String generateOffset ( String pinValidationData,  String pin  ) throws Exception {
 		
@@ -135,19 +133,18 @@ public class Ibm3624Offset  {
 
 	/**
 	 * Natural Pin calculation.
-	 * <p>
 	 * <pre>
 	 * - Validate Pin Validation Data
 	 * - DES or Tdes of Pin Validation data (depending of Pvk length)
 	 * - Take N-bytes (N=pin length/2) and decimalize this data
-	 * - Natural Pin --> Return previous result as string  
+	 * - Natural Pin --{@literal>} Return previous result as string  
 	 * </pre> 	
 	 * @param pinValidationData input pin validation data 
 	 * @param pinLength	pin length 
 	 * @return natural pin generated
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */	
-	public String calculateNaturalPin (  String pinValidationData ,  int pinLength  ) throws Exception, CustomerVerifyException {
+	public String calculateNaturalPin (  String pinValidationData ,  int pinLength  ) throws Exception {
 
 		byte[] blkA	= new byte[BLK16];
 		byte[] blkB	;
@@ -207,7 +204,7 @@ public class Ibm3624Offset  {
 	 * <p>
 	 * @param  pinvaldata Pin Validation Data input
 	 * @return true or throws an exception
-	 * @throws CustomerVerifyException
+	 * @throws CustomerVerifyException if a exception arrives
 	 */
 	private boolean isvalidPinValidationData (String pinvaldata ) throws CustomerVerifyException {
 		

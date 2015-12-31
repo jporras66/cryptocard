@@ -4,9 +4,8 @@ import com.indarsoft.cryptocard.card.Card;
 import com.indarsoft.cryptocard.symmetrickey.Zpk;
 import com.indarsoft.utl.Binary;
 /**
- * ISO PIN Block Format 0  aka  ISO 9564-1 & ANSI X9.8 format 0
+ * ISO PIN Block Format 0  aka  ISO 9564-1 {@literal&} ANSI X9.8 format 0
  * aka  ISO-0 (same as ANSI X9.8, VISA-1, and ECI-1).
- * <p>
  * <pre>
  * See VISA - Payment Technology Standards Manual - 5.2.1 ISO PIN Block Format 0
  * 
@@ -36,7 +35,7 @@ public class IsoPinBlockFormat0  extends PinBlock {
 	 * <p>
 	 * @param card input card
 	 * @param zpk input zpk
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */
 	protected IsoPinBlockFormat0 ( Card card, Zpk zpk ) throws Exception {
 		
@@ -53,7 +52,7 @@ public class IsoPinBlockFormat0  extends PinBlock {
 	 * @param encryptedPinBlock input decrypted pinblock 
 	 * @param card input card
 	 * @param zpk input zpk
-	 * @throws Exception
+	 * @throws Exception if a exception arrives
 	 */	
 	protected IsoPinBlockFormat0 ( byte[] encryptedPinBlock, Card card, Zpk zpk ) throws Exception {
 		
